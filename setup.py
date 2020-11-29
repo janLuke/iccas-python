@@ -37,7 +37,6 @@ setup(
     author_email="gianluca.gippetto@gmail.com",
     python_requires=">=3.7",
     classifiers=[
-        "Development Status :: 2 - Pre-Alpha",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",
         "Natural Language :: English",
@@ -45,7 +44,7 @@ setup(
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
     ],
-    description="Python Boilerplate contains all the boilerplate you need to create a Python package.",
+    description="Helper library for the ICCAS dataset",
     install_requires=requirements,
     extras_require=extra_requirements,
     license="MIT license",
