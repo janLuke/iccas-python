@@ -2,24 +2,29 @@
 ICCAS Python Helper
 ====================
 
-..
-    .. image:: https://img.shields.io/pypi/v/iccas.svg
-            :target: https://pypi.python.org/pypi/iccas
 
-.. image:: https://img.shields.io/travis/janLuke/iccas.svg
-        :target: https://travis-ci.com/janLuke/iccas-python
+.. image:: https://img.shields.io/pypi/v/iccas.svg
+    :target: https://pypi.python.org/pypi/iccas
 
-..
-    .. image:: https://readthedocs.org/projects/iccas/badge/?version=latest
-            :target: https://iccas.readthedocs.io/en/latest/?badge=latest
-            :alt: Documentation Status
+.. image:: https://travis-ci.com/janLuke/iccas-python.svg?branch=main
+    :target: https://travis-ci.com/janLuke/iccas-python
+
+.. image:: https://readthedocs.org/projects/iccas/badge/?version=latest
+    :target: https://iccas.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+
+.. image:: https://mybinder.org/badge_logo.svg
+    :target: https://mybinder.org/v2/gh/janLuke/iccas-python/main?filepath=notebooks
 
 This repository contains:
 
 - a helper package to get the `ICCAS dataset`_ (Italian Coronavirus Cases by
-  Age group and Sex) and work with it; this includes
-- some Jupyter notebooks in the "notebooks" folder with some charts and tables.
+  Age group and Sex) and work with it;
+- some Jupyter notebooks that you can run on Binder clicking the badge above.
 
+
+The package
+-----------
 The package includes several submodules:
 
 .. list-table::
@@ -37,15 +42,6 @@ The package includes several submodules:
     * - ``charts``
       - Draw charts and animations (in Italian or English).
 
-* Free software: MIT license
-* Documentation: https://iccas.readthedocs.io.
-
-.. _`ICCAS dataset`: https://github.com/janLuke/iccas-dataset/
-
-
-Installation
-------------
-
 To install the package::
 
     pip install iccas
@@ -53,6 +49,20 @@ To install the package::
 If you want to use the CLI::
 
     pip install iccas[cli]
+
+
+* Free software: MIT license
+* Documentation: https://iccas.readthedocs.io.
+
+.. _`ICCAS dataset`: https://github.com/janLuke/iccas-dataset/
+
+
+Notebooks
+----------
+Notebooks text is written in Italian but charts are available in English as well.
+You just need to run in the first cell::
+
+    ic.set_locale('en')
 
 To run notebooks locally, you need to `install jupyter`_ , for example with::
 
