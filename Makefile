@@ -92,16 +92,3 @@ dist: clean ## builds source and wheel package
 
 install: clean ## install the package to the active Python's site-packages
 	python setup.py install
-
-pot:  ## .pot file (translation template)
-	pybabel extract -o iccas/locales/messages.pot iccas
-
-## This is here just for reference. You need to set a LOCALE environment variable
-new-po: pot   ## create a .po file for the $(LOCALE)
-	pybabel init --locale $(LOCALE) -i iccas/locales/messages.pot
-
-update-po: pot  ## update the .po files
-	pybabel update -d iccas/locales -i iccas/locales/messages.pot
-
-translations: update-po
-	pybabel compile -d iccas/locales
