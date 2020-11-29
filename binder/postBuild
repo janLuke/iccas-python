@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+jupyter nbextension enable --py widgetsnbextension

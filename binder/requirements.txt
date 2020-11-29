@@ -1,0 +1,6 @@
+git+https://github.com/janLuke/iccas-python.git
+numpy
+pandas
+matplotlib
+seaborn
+ipywidgets

@@ -1,0 +1,67 @@
+en:
+    age: Age
+    month: Month
+    cases_age_distribution: Age distribution of coronavirus cases in Italy
+    deaths_age_distribution: Age distribution of deaths by coronavirus in Italy
+    cases_label: Coronavirus cases
+    deaths_label: Deaths by coronavirus
+    istat_population_data_label: Population (jan 2020)
+    period_end_date: Period end date
+
+    average_daily_cases: Average number of daily new cases
+    average_daily_deaths: Average number of daily deaths
+
+    by_periods_of_n_days:
+        one: day by day
+        many: by periods of {count} days
+    month_by_month: month by month
+    week_by_week: week by week
+
+    running_average_cases_title:
+        one: Daily coronavirus cases in Italy
+        many: Running average ({count} days) of daily coronavirus cases in Italy
+    running_average_deaths_title:
+        one: Daily deaths for coronavirus in Italy
+        many: Running average ({count} days) of daily deaths for coronavirus in Italy
+
+    running_cases_age_distribution:
+        one: Age distribution of coronavirus cases in Italy on...
+        many: >
+            Age distribution of coronavirus cases in Italy (last {count} days)
+    running_deaths_age_distribution:
+        one: Age distribution of deaths by coronavirus in Italy on...
+        many: >
+            Age distribution of deaths by coronavirus in Italy (last {count} days)
+
+it:
+    age: Età
+    month: Mese
+    cases_age_distribution: Distribuzione d'età dei casi
+    deaths_age_distribution: Distribuzione d'età dei deceduti
+    cases_label: Casi di coronavirus
+    deaths_label: Decessi per coronavirus
+    istat_population_data_label: Popolazione (gen 2020)
+    period_end_date: Data di fine periodo
+
+    average_daily_cases: Numero medio di casi giornalieri
+    average_daily_deaths: Numero medio di decessi giornalieri
+
+    by_periods_of_n_days:
+        one: giorno per giorno
+        many: per periodi di {count} giorni
+    month_by_month: mese per mese
+    week_by_week: settimana per settimana
+
+    running_average_cases_title:
+        one: Casi giornalieri di coronavirus
+        many: Media mobile a {count} giorni dei casi giornalieri di coronavirus
+    running_average_deaths_title:
+        one: Decessi giornalieri per coronavirus
+        many: Media mobile a {count} giorni dei decessi giornalieri per coronavirus
+
+    running_cases_age_distribution:
+        one: Distribuzione d'età dei casi di coronavirus giorno per giorno
+        many: Distribuzione d'età dei casi diagnosticati negli ultimi {count} giorni
+    running_deaths_age_distribution:
+        one: Distribuzione d'età degli italiani morti di COVID-19 il...
+        many: Distribuzione d'età dei deceduti registrati negli ultimi {count} giorni
