@@ -19,7 +19,7 @@ ICCAS Python Helper
 This repository contains:
 
 - a helper package to get the `ICCAS dataset`_ (Italian Coronavirus Cases by
-  Age group and Sex) and work with it;
+  Age group and Sex), processing and visualizing it;
 - some Jupyter notebooks that you can run on Binder clicking on the badge
   "launch notebooks" above.
 
