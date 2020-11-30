@@ -6,8 +6,6 @@ Welcome to ICCAS Python Helper's documentation!
    :caption: Contents:
 
    readme
-   installation
-   usage
    modules
    contributing
    history

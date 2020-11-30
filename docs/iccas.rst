@@ -1,16 +1,18 @@
 iccas package
 =============
 
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   iccas.charts
+   iccas.cli
+   iccas.i18n
+
 Submodules
 ----------
-
-iccas.caching module
---------------------
-
-.. automodule:: iccas.caching
-   :members:
-   :undoc-members:
-   :show-inheritance:
 
 iccas.checks module
 -------------------

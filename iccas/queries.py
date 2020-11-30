@@ -247,6 +247,17 @@ def running_average(
 
 
 def count_by_period(counts: PandasObj, freq: Union[str, int]) -> PandasObj:
+    """
+    Returns a new Series/DataFrame with counts (cases/deaths) by period
+    (e.g. months, weeks, ``n`` days ecc)
+
+    Args:
+        counts:
+        freq: period frequency parameter (whatever accepted by ``pandas``)
+
+    Returns:
+
+    """
     if isinstance(freq, int):
         freq = f'{freq}D'
     r = ic.resample(counts, freq=freq)
@@ -256,6 +267,17 @@ def count_by_period(counts: PandasObj, freq: Union[str, int]) -> PandasObj:
 
 
 def average_by_period(counts: PandasObj, freq: Union[str, int]) -> PandasObj:
+    """
+    Returns a new Series/DataFrame with average counts (cases/deaths) by period
+    (e.g. months, weeks, ``n`` days ecc)
+
+    Args:
+        counts:
+        freq: period frequency parameter (whatever accepted by ``pandas``)
+
+    Returns:
+
+    """
     c = count_by_period(counts, freq)
     lengths = (c.index.end_time - c.index.start_time + pd.Timedelta(nanoseconds=1)).days
     return c.div(lengths, axis=0)
