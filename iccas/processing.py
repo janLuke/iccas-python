@@ -70,7 +70,7 @@ def resample(
     """
     Resamples `data` and fills missing values by interpolation.
 
-    The resulting index is a `pandas.DatetimeIndex` whose elements are spaced by
+    The resulting index is a `pandas.DatetimeIndex` whose elements are spaced
     accordingly to `freq` and having the time set to `{hour}:00`.
 
     In the case of "day frequencies" ('{num}D'), the index always includes the
