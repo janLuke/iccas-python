@@ -1,6 +1,6 @@
 __author__ = """Gianluca Gippetto"""
 __email__ = "gianluca.gippetto@gmail.com"
-__version__ = "0.1.2"
+__version__ = "0.2.0"
 
 __all__ = (
     "charts",
