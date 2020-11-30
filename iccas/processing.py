@@ -153,16 +153,24 @@ def nullify_local_bumps(df: pd.DataFrame):
 
 def fix_monotonicity(data: pd.DataFrame, method="pchip", **interpolation):
     """
-    Replaces tracts of "cases" and "deaths" time series that break the monotonicity
-    of the series with interpolated data, ensuring that the sum of male and female
-    counts are less or equal to the total count.
+    Replaces tracts of all cases and deaths time series that break the non-decreasing
+    trend of the series with interpolated data.
+    This function also ensures that the following conditions are still satisfied
+    even after the "correction"::
+
+        male_cases + female_cases <= cases
+        male_deaths + female_deaths <= deaths
+
+    Non-integer columns, if present, are ignored and returned as they are in
+    the output DataFrame.
 
     Args:
         data: a DataFrame containing all integer columns about cases and deaths
         method: interpolation method
 
     Returns:
-
+        a DataFrame with all integer time series (columns) modified so that they
+        are non-decreasing time series
     """
     # Fix all individual series independently
     orig = only_counts(data)
