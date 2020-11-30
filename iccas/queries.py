@@ -161,8 +161,10 @@ def aggregate_age_groups(
             age groups as columns, either in a simple Index or in
             a MultiIndex (no matter in what level)
         cuts:
-            a single integer N means "cuts each N years";
-            a sequence of integers determines the start ages of new age groups.
+            a single integer N means "cut each N years";
+            a sequence of integers determines the start ages of new age groups;
+            0 is implicitly the start age of the first group, even if not
+            present in ``cuts``.
         fmt_last:
             format string for the last "unbounded" age group
 
