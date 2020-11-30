@@ -7,6 +7,7 @@ interpreter/kernel and possibly without reloading the module.
 import locale
 from collections import ChainMap
 from dataclasses import dataclass
+from functools import wraps
 from io import StringIO
 from itertools import chain
 from pathlib import Path
@@ -131,6 +132,7 @@ class TranslationsManager:
             raise TypeError('scoped_translations')
 
         def decorator(func):
+            @wraps(func)
             def wrapper(*args, lang: Optional[str] = None, **kwargs):
                 lang = lang or self.current_language
                 self._reload_modified_files()

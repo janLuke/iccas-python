@@ -8,7 +8,6 @@ Welcome to ICCAS Python Helper's documentation!
    readme
    modules
    contributing
-   history
 
 Indices and tables
 ==================
