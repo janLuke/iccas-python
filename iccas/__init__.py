@@ -25,6 +25,12 @@ __all__ = (
     "running_average",
     "running_count",
     "fatality_rate",
+    "language",
+    "set_language",
+    "set_locale",
+    "count_by_period",
+    "average_by_period",
+    "queries",
 )
 
 from .i18n import language, set_language, set_locale

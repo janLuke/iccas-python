@@ -11,7 +11,7 @@ import iccas as ic
 
 
 def to_filename(string: str) -> str:
-    return sanitize_filename(string, platform='universal').replace(' ', '_')
+    return str(sanitize_filename(string, platform='universal')).replace(' ', '_')
 
 
 @group('iccas')

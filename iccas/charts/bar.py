@@ -8,7 +8,7 @@ import seaborn as sns
 import iccas as ic
 from iccas.charts.common import DEFAULT_CMAP, legend
 from iccas.i18n import translated
-from iccas.i18n.lib import Translation
+from iccas.i18n.lib import NullTranslation, Translation
 
 
 def add_labels_to_bars(
@@ -53,7 +53,7 @@ class AgeDistributionBarChart:
         counts: pd.DataFrame,
         variable: str = "cases",
         *,
-        strings: Translation,
+        strings: Translation = NullTranslation(),
         normalize: bool = True,
         age_group_size: int = 10,
         window: int = 14,
@@ -206,7 +206,7 @@ def age_dist_bar_chart(
         age_group_size=age_group_size,
         window=window,
         population_distribution=population_distribution,
-        lang=lang,
+        lang=lang,    # type: ignore
     ).show(date)
 
 

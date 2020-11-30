@@ -10,11 +10,14 @@ from dataclasses import dataclass
 from io import StringIO
 from itertools import chain
 from pathlib import Path
-from typing import Optional, Union
+from typing import List, Mapping, Optional, Tuple, Union
 
 import yaml
 
 from iccas.types import PathType
+
+LanguageStrings = Mapping[str, Union[str, Mapping[str, str]]]
+TranslationsMap = Mapping[str, LanguageStrings]
 
 
 class Translation:
@@ -33,6 +36,7 @@ class Translation:
         if isinstance(plural_strings, str):
             return plural_strings.format(**{varname: count})
 
+        keys: Union[Tuple[str], Tuple[str, str]]
         if count == 0:
             keys = ("zero", "many")
         elif count == 1:
@@ -54,6 +58,9 @@ class Translation:
 
 
 class NullTranslation(Translation):
+    def __init__(self):
+        super().__init__('null', {})
+
     def __getitem__(self, str_id: str) -> str:
         return str_id
 
@@ -99,7 +106,7 @@ class TranslationsManager:
         for file in self.files:
             file.reload_if_modified()
 
-    def injector(self, scoped_translations: Union[None, str, dict] = None):
+    def injector(self, scoped_translations: Union[None, str, TranslationsMap] = None):
         """
         Decorator that adds a ``lang`` argument to the signature and injects a
         ``strings`` argument of type :class:`Translation`.
@@ -112,22 +119,26 @@ class TranslationsManager:
         Args:
             scoped_translations: yaml string or dictionary
         """
+        extra_translations: TranslationsMap
+        if isinstance(scoped_translations, dict):
+            extra_translations = scoped_translations
         if scoped_translations and isinstance(scoped_translations, str):
             with StringIO(scoped_translations) as s:
-                scoped_translations = yaml.full_load(s) or {}
+                extra_translations = yaml.full_load(s) or {}
         elif scoped_translations is None:
-            scoped_translations = {}
+            extra_translations = {}
+        else:
+            raise TypeError('scoped_translations')
 
         def decorator(func):
             def wrapper(*args, lang: Optional[str] = None, **kwargs):
                 lang = lang or self.current_language
                 self._reload_modified_files()
-                mappings = (
-                    [scoped_translations[lang]] if lang in scoped_translations else []
+                mappings: List[LanguageStrings] = (
+                    [extra_translations[lang]] if lang in extra_translations else []
                 )
                 mappings += [f.content[lang] for f in self.files if lang in f.content]
-                strings = ChainMap(*mappings)
-                strings = Translation(lang, strings)
+                strings = Translation(lang, ChainMap(*mappings))
                 return func(*args, strings=strings, **kwargs)
 
             wrapper.translation_manager = self

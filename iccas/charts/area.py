@@ -98,12 +98,12 @@ def double_area_chart_of_cumulative_counts(
     """
     check_variable(variable)
     check_age_group_size(age_group_size)
-    period = slice(*period) if period else slice(data.index[0], None)
+    period_slice: slice = slice(*period) if period else slice(data.index[0], None)
 
     # resample for a smoother graph
     d = resample_if_needed(data[variable], "D", hour=18, method="pchip")
     d = ic.aggregate_age_groups(
-        d[period].drop(columns="unknown"),
+        d[period_slice].drop(columns="unknown"),
         cuts=age_group_size,
         fmt_last="{}+",
     )
@@ -129,10 +129,10 @@ def double_area_chart_of_running_averages(
 ):
     check_variable(variable)
     check_age_group_size(age_group_size)
-    period = slice(*period) if period else slice(data.index[0], None)
+    period_slice = slice(*period) if period else slice(data.index[0], None)
 
     r = resample_if_needed(data[variable].drop(columns="unknown"), "D")
-    d = r[period]
+    d = r[period_slice]
     d = d.diff(window).iloc[window:]
     d = ic.aggregate_age_groups(d, cuts=age_group_size, fmt_last="{}+")
     if window > 1:

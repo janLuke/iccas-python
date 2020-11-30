@@ -180,9 +180,9 @@ def aggregate_age_groups(
 
     result = (
         d.assign(age_group=d.age_group.apply(grouper.__getitem__))
-            .groupby(["date", "age_group"])
-            .sum()
-            .unstack("age_group")
+        .groupby(["date", "age_group"])
+        .sum()
+        .unstack("age_group")
     )
 
     if not isinstance(counts.columns, pd.MultiIndex):
