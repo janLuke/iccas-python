@@ -5,7 +5,7 @@ import pytest
 import requests
 import requests_mock
 
-from iccas.caching import RemoteFolderProxy
+from iccas._caching import RemoteFolderProxy
 
 BASE_URL = "http://www.whatever.com/path/to/folder/"
 

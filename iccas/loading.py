@@ -4,7 +4,7 @@ from typing import Optional, Tuple
 from urllib.parse import urljoin
 
 import pandas as pd
-from iccas.caching import RemoteFolderProxy
+from iccas._caching import RemoteFolderProxy
 from iccas.types import DateLike, PathType
 
 BASE_URL = (
