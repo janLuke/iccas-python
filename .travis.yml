@@ -23,5 +23,5 @@ deploy:
     secure: PLEASE_REPLACE_ME
   on:
     tags: true
-    repo: janLuke/iccas
+    repo: janLuke/iccas-python
     python: 3.8
