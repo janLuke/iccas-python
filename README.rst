@@ -53,7 +53,7 @@ If you want to use the CLI::
 
 
 * Free software: MIT license
-* Documentation: https://iccas.readthedocs.io.
+* Documentation: https://iccas-python.readthedocs.io/en/latest/readme.html
 
 .. _`ICCAS dataset`: https://github.com/janLuke/iccas-dataset/
 
