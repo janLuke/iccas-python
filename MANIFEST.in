@@ -1,5 +1,4 @@
 include CONTRIBUTING.rst
-include HISTORY.rst
 include LICENSE
 include README.rst
 include iccas/i18n/translations.yml
