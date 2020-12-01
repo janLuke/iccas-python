@@ -203,7 +203,7 @@ def get_unknown_sex_count(counts: pd.DataFrame, variable: str) -> pd.DataFrame:
 
 def running_count(
     counts: PandasObj,
-    window: int = 7,
+    window: int,
     step: int = 1,
     **resample_kwargs
 ) -> PandasObj:
@@ -229,7 +229,7 @@ def running_count(
 
 def running_average(
     counts: PandasObj,
-    window: int = 7,
+    window: int,
     step: int = 1,
     **resample_kwargs
 ) -> PandasObj:
