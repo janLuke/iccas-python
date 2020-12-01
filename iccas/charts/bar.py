@@ -77,12 +77,11 @@ class AgeDistributionBarChart:
         """
         self.ax = ax = ax or plt.gca()
         s = strings
-        data = (
-            counts[variable]
-            .drop(columns="unknown")
-            .pipe(ic.running_average, window=window, **resample_kwargs)
-            .pipe(ic.aggregate_age_groups, cuts=age_group_size)
-        )
+
+        data = counts[variable].drop(columns="unknown")
+        data = ic.running_average(data, window=window, **resample_kwargs)
+        data = ic.aggregate_age_groups(data, cuts=age_group_size)
+
         if normalize:
             data = data.divide(data.sum(axis=1), axis=0)
             ax.yaxis.set_major_formatter(

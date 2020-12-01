@@ -81,11 +81,7 @@ def age_dist_animation(
     figsize, interval, repeat, repeat_delay,
 ):
     ic.set_locale(lang)
-    data = (
-        ic.get()
-        .pipe(ic.fix_monotonicity)
-        [['cases', 'deaths']]
-    )
+    data = ic.fix_monotonicity(ic.get())[['cases', 'deaths']]
 
     plt.Figure(figsize=figsize)
     chart = ic.charts.AgeDistributionBarChart(

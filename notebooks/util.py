@@ -150,12 +150,10 @@ def averages_by_period_table(
     data, variable, freq='M', normalize: bool = False,
     age_group_size=10, gradient_axis=1
 ):
-    d = (
-        data[variable]
-        .drop(columns='unknown')
-        .pipe(ic.aggregate_age_groups, age_group_size)
-        .pipe(ic.average_by_period, freq=freq)
-    )
+    d = data[variable].drop(columns='unknown')
+    d = ic.aggregate_age_groups(d, age_group_size)
+    d = ic.average_by_period(d, freq=freq)
+
     if normalize:
         d = d.div(d.sum(axis=1), axis=0)
         fmt = '{:.1%}'
