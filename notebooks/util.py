@@ -111,24 +111,11 @@ def period_form_field(
     )
 
 
-def date_form_field(datetime_index, fmt="%d %b %Y", window_control=None, **kwargs):
-    def make_options(start_index):
-        datetimes = datetime_index[start_index:]
-        return list(zip(datetimes.strftime(fmt), datetimes))
-
-    start_index = window_control.value if window_control else 0
+def date_form_field(datetime_index, fmt="%d %b %Y", **kwargs):
+    formatted_datetimes = datetime_index.strftime(fmt)
+    options = list(zip(formatted_datetimes, datetime_index))
     args = {"continuous_update": False, **kwargs}
-    widget = widgets.SelectionSlider(options=make_options(start_index), **args)
-    if window_control:
-
-        def set_options(c):
-            start_index = c["new"]
-            new_min_date = datetime_index[start_index]
-            new_value = new_min_date if widget.value < new_min_date else widget.value
-            widget.value = new_value
-            widget.options = make_options(start_index)
-
-        window_control.observe(set_options, "value")
+    widget = widgets.SelectionSlider(options=options, **args)
     return "Data", widget
 
 
