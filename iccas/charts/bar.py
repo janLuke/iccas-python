@@ -94,25 +94,23 @@ class AgeDistributionBarChart:
             population = ic.aggregate_age_groups(
                 population_distribution, cuts=age_group_size
             )
-            sns.set_color_codes("pastel")
             sns.barplot(
                 ax=ax,
                 label=s["istat_population_data_label"],
                 x=population.index,
                 y=population,
-                facecolor='b',
+                facecolor='#a1c9f4',
                 hatch="/",
                 edgecolor="white",
             )
 
-        sns.set_color_codes("muted")
         age_groups = data.columns
         label = s[f"{variable}_label"]
         self.bars = ax.bar(
             x=age_groups,
             height=[0] * len(age_groups),
             label=label,
-            facecolor='b',
+            facecolor='#4878d0',
             alpha=0.7,
         )
         self.labels, self.update_labels = add_labels_to_bars(
