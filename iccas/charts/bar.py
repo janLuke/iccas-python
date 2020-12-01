@@ -175,7 +175,7 @@ class AgeDistributionBarChart:
         return self.artists
 
     def animation(self, **kwargs) -> mpl.animation.FuncAnimation:
-        kwargs = {"blit": True, "repeat": False, "interval": 50, **kwargs}
+        kwargs = {"blit": True, "repeat": False, "interval": 80, **kwargs}
         return mpl.animation.FuncAnimation(
             self.ax.figure, self.show, frames=self.data.index, **kwargs
         )
