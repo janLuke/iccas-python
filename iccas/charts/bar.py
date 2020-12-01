@@ -80,7 +80,7 @@ class AgeDistributionBarChart:
         data = (
             counts[variable]
             .drop(columns="unknown")
-            .pipe(ic.running_average, **resample_kwargs)
+            .pipe(ic.running_average, window=window, **resample_kwargs)
             .pipe(ic.aggregate_age_groups, cuts=age_group_size)
         )
         if normalize:
@@ -277,6 +277,7 @@ if __name__ == '__main__':
     ic.set_locale('it')
     df = ic.fix_monotonicity(ic.get())
     anim = AgeDistributionBarChart(
-        df, population_distribution=ic.get_population_by_age_group().percentage
+        df, window=1,
+        population_distribution=ic.get_population_by_age_group().percentage
     ).animation()
     plt.show()
