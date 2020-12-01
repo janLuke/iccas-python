@@ -47,16 +47,18 @@ To install the package::
 
     pip install iccas
 
-If you want to use the CLI::
+If you want to use the CLI, you need extra dependencies::
 
     pip install iccas[cli]
+
+and you also need to `install ffmpeg`_.
 
 
 * Free software: MIT license
 * Documentation: https://iccas-python.readthedocs.io/en/latest/readme.html
 
 .. _`ICCAS dataset`: https://github.com/janLuke/iccas-dataset/
-
+.. _`install ffmpeg`: https://ffmpeg.org/download.html
 
 Notebooks
 ----------
