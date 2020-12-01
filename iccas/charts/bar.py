@@ -153,7 +153,7 @@ class AgeDistributionBarChart:
             color=(1, 1, 1, 0.9),
             bbox=dict(
                 boxstyle=mpl.patches.BoxStyle("Round", pad=0.4),
-                color=(0.5, 0.5, 0.5, 0.5),
+                color=(0, 0, 0, 0.30),
             ),
             fontsize=14,
             fontweight="semibold",
