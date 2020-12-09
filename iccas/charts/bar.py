@@ -261,7 +261,7 @@ def average_by_period_bar_chart(
     ]
     if freq == 'M':
         period_label = strings['month_by_month']
-    elif freq == 7 or (isinstance(freq, str) and freq.startswith('W')):
+    elif freq in {'W', 'W-SUN'}:
         period_label = strings['week_by_week']
     elif isinstance(freq, int):
         period_label = strings.get('by_periods_of_n_days', count=freq)
